@@ -34,7 +34,8 @@ public class UserController {
     @GetMapping
     public Response list() {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.in("id", Arrays.asList(1, 2, 3));
+        wrapper.in("id", Arrays.asList(1, 2, 3))
+        .orderByDesc("id");
         List<User> userList = userService.list(wrapper);
         return Response.success(userList);
     }

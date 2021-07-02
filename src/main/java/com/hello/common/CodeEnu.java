@@ -1,8 +1,8 @@
 package com.hello.common;
 
 public enum CodeEnu {
-    SUCCESS("000000", "成功"),
-    ERROR("999999", "ERROR"),
+    SUCCESS("0", "成功"),
+    ERROR("1", "ERROR"),
 
 
     ;
