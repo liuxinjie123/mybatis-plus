@@ -35,7 +35,7 @@ public class UserController {
     public Response list() {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.in("id", Arrays.asList(1, 2, 3))
-        .orderByDesc("id");
+                .orderByDesc("id");
         List<User> userList = userService.list(wrapper);
         return Response.success(userList);
     }
@@ -51,7 +51,23 @@ public class UserController {
 
     @PostMapping
     public Response save(@RequestBody User user) {
-        boolean success = userService.saveOrUpdate(user);
+        boolean success;
+        if (null == user.getId()) {
+            success = userService.save(user);
+        } else {
+
+            success = userService.updateById(user);
+        }
+        if (success) {
+            return Response.success();
+        } else {
+            return Response.error();
+        }
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public Response delete(@PathVariable(value = "id") Long id) {
+        boolean success = userService.removeById(id);
         if (success) {
             return Response.success();
         } else {

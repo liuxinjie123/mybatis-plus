@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -24,7 +25,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Accessors(chain = true)
 @ApiModel(value="User对象", description="用户表")
-public class User extends Model {
+public class User extends Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -45,13 +46,22 @@ public class User extends Model {
 //    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    @Version
-    @TableField(fill = FieldFill.INSERT)
-    private Integer version;
-
     @ApiModelProperty(value = "最后一次更新时间")
 //    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
 
+    /**
+     * 逻辑删除
+     * 0 - 未删除， 1 - 已删除
+     */
+    @TableLogic(value = "0", delval = "1")
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleteFlag;
 
+//    @TableField(fill = FieldFill.INSERT)
+
+    @ApiModelProperty(value = "版本号")
+    @Version
+    @TableField(value = "version")
+    private Integer version;
 }
