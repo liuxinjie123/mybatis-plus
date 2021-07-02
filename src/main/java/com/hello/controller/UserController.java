@@ -1,6 +1,7 @@
 package com.hello.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hello.common.Response;
 import com.hello.model.User;
 import com.hello.service.IUserService;
@@ -38,6 +39,15 @@ public class UserController {
         .orderByDesc("id");
         List<User> userList = userService.list(wrapper);
         return Response.success(userList);
+    }
+
+    @GetMapping("/page")
+    public Response pageList(Page page) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.select("id", "username")
+                .orderByDesc("id");
+        Page userPage = userService.pageList(page, wrapper);
+        return Response.success(userPage);
     }
 
     @PostMapping

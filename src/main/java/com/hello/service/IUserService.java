@@ -1,6 +1,7 @@
 package com.hello.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hello.model.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -18,4 +19,5 @@ public interface IUserService extends IService<User> {
 
     List<User> selectList(Wrapper wrapper);
 
+    Page pageList(Page page, Wrapper wrapper);
 }
