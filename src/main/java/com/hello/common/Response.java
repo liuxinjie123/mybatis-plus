@@ -1,7 +1,6 @@
 package com.hello.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -9,7 +8,6 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-//@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)

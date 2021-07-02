@@ -44,7 +44,7 @@ public class UserController {
     @GetMapping("/page")
     public Response pageList(Page page) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.select("id", "username")
+        wrapper.select("id", "username", "create_time")
                 .orderByDesc("id");
         Page userPage = userService.pageList(page, wrapper);
         return Response.success(userPage);

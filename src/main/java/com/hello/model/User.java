@@ -8,6 +8,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -19,6 +23,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@Accessors(chain = true)
 @ApiModel(value="User对象", description="用户表")
 public class User extends Model {
 
@@ -36,6 +42,9 @@ public class User extends Model {
 
     @ApiModelProperty(value = "手机号")
     private String phone;
+
+    @ApiModelProperty(value = "创建时间")
+    private LocalDateTime createTime;
 
 
 }
