@@ -1,8 +1,7 @@
 package com.hello.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -43,7 +42,16 @@ public class User extends Model {
     private String phone;
 
     @ApiModelProperty(value = "创建时间")
+//    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
+
+    @Version
+    @TableField(fill = FieldFill.INSERT)
+    private Integer version;
+
+    @ApiModelProperty(value = "最后一次更新时间")
+//    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
 
 
 }
