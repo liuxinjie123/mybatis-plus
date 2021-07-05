@@ -30,8 +30,8 @@ public class User extends Model implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "ID ")
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    private Long id;
 
     @ApiModelProperty(value = "用户名")
     private String username;
@@ -47,7 +47,6 @@ public class User extends Model implements Serializable {
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "最后一次更新时间")
-//    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime updateTime;
 
     /**
@@ -55,10 +54,7 @@ public class User extends Model implements Serializable {
      * 0 - 未删除， 1 - 已删除
      */
     @TableLogic(value = "0", delval = "1")
-    @TableField(fill = FieldFill.INSERT)
     private Integer deleteFlag;
-
-//    @TableField(fill = FieldFill.INSERT)
 
     @ApiModelProperty(value = "版本号")
     @Version
