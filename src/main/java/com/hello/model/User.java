@@ -53,7 +53,8 @@ public class User extends Model implements Serializable {
      * 逻辑删除
      * 0 - 未删除， 1 - 已删除
      */
-    @TableLogic(value = "0", delval = "1")
+    @ApiModelProperty(value = "逻辑删除")
+//    @TableLogic(value = "0", delval = "1")
     private Integer deleteFlag;
 
     @ApiModelProperty(value = "版本号")

@@ -20,7 +20,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Configuration
-public class DateFormatConfig {
+public class MyMvcConfig {
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public Jackson2ObjectMapperBuilderCustomizer customJackson() {
@@ -34,6 +34,8 @@ public class DateFormatConfig {
             builder.serializationInclusion(JsonInclude.Include.NON_NULL);
             builder.failOnUnknownProperties(false);
             builder.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+            // 序列化枚举值为数据库存储值
+            builder.featuresToEnable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
         };
     }
 
