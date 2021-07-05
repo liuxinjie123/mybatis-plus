@@ -43,7 +43,7 @@ public class UserController {
     @GetMapping("/page")
     public Response pageList(Page page) {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
-        wrapper.select("id", "username", "create_time")
+        wrapper.select("id", "username", "phone", "create_time", "version")
                 .orderByDesc("id");
         Page userPage = userService.pageList(page, wrapper);
         return Response.success(userPage);
@@ -55,8 +55,13 @@ public class UserController {
         if (null == user.getId()) {
             success = userService.save(user);
         } else {
-
-            success = userService.updateById(user);
+            User oldUser = userService.getById(user.getId());
+            if (null == oldUser) {
+                return Response.error();
+            }
+            oldUser.setUsername(user.getUsername());
+            oldUser.setPhone(user.getPhone());
+            success = userService.updateById(oldUser);
         }
         if (success) {
             return Response.success();
