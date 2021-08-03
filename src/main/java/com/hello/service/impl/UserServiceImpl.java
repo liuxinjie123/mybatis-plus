@@ -3,7 +3,7 @@ package com.hello.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hello.model.User;
+import com.hello.model.entity.User;
 import com.hello.mapper.UserMapper;
 import com.hello.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

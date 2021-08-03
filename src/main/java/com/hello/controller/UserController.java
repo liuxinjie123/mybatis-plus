@@ -3,7 +3,7 @@ package com.hello.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hello.common.Response;
-import com.hello.model.User;
+import com.hello.model.entity.User;
 import com.hello.service.IUserService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,8 +1,9 @@
-package com.hello.model;
+package com.hello.model.entity;
 
 import java.math.BigDecimal;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.time.LocalDateTime;
@@ -46,6 +47,7 @@ public class Order extends Model {
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "最后更新时间")
+    @TableField(value = "update_time")
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "逻辑删除（0 未删除、1 删除）")

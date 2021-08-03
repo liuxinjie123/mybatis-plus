@@ -1,6 +1,6 @@
 package com.hello.service.impl;
 
-import com.hello.model.Order;
+import com.hello.model.entity.Order;
 import com.hello.mapper.OrderMapper;
 import com.hello.service.IOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

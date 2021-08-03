@@ -1,6 +1,6 @@
 package com.hello.mapper;
 
-import com.hello.model.User;
+import com.hello.model.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

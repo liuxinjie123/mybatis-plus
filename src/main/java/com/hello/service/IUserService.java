@@ -2,7 +2,7 @@ package com.hello.service;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hello.model.User;
+import com.hello.model.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

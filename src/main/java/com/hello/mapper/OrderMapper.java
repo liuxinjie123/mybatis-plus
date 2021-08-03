@@ -1,6 +1,6 @@
 package com.hello.mapper;
 
-import com.hello.model.Order;
+import com.hello.model.entity.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

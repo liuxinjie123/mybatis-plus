@@ -1,6 +1,6 @@
 package com.hello.service;
 
-import com.hello.model.Order;
+import com.hello.model.entity.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
